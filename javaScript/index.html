@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> color should be change every second</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+</html>
+<script>
+    const start=document.querySelector('#start')
+    const stop1=document.querySelector("#stop")
+
+    const hex="0123456789ABCDEF"
+    let control;
+
+    const  genRandHexCode=()=>{
+        let code='#'
+        for(let i=0;i<6;i++){
+            code += hex[Math.floor(Math.random()*16)]
+        }
+        return code
+    }
+
+    const genColor=()=>
+    {
+        document.body.style.backgroundColor = genRandHexCode()
+        console.log(genRandHexCode())
+    }
+
+    start.addEventListener('click',()=>{
+       control= setInterval(genColor,1000)
+    })
+
+    stop1.addEventListener('click',()=>{
+        clearInterval(control)
+    })
+
+    
+</script>
